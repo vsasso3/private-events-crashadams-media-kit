@@ -309,18 +309,15 @@ const DEFAULT_CONFIG = {
     ],
   },
   bioText: `Crash Adams is a Toronto-based pop duo made up of childhood friends Rafaele "Crash"Massarelli and Vince "Adams" Sasso. They've built a dedicated fanbase and launched asuccessful music career by leveraging their ability to go insanely viral through fun and authenticcontent.Their music is an infectious blend of pop and pop-rock, defined by catchy hooks andfeel-good, cinematic storytelling. In 2025/26, they’ll expand their viral short-form series while taking fans on the road—sharingconcert footage, press moments, tour life, and the process of creating music and videos.Rafaele and Vince bring fans closer by showing both the highs of performing and thebehind-the-scenes of their journey`,
-  highlights: [
-    { emoji: "🎧", bold: "450M", text: " Video/Audio Streams" },
-    { emoji: "📺", bold: "12 Million Subscribers", text: " on YouTube and 5.8 Billion Views" },
-    { emoji: "📱", bold: "Top 5", text: " Most Viewed Artist in Canada on TikTok" },
-    { emoji: "🌟", bold: "Featured", text: " on America’s Got Talent" },
-    { emoji: "🏆", bold: "2025 Juno Nominee", text: " for “Group Of The Year”" },
-    {
-      emoji: "🤝",
-      bold: "Notable Content Collabs Include:",
-      text: " Victoria Justice, JVKE, Emilio Piano, Huddy, America’s Got Talent",
-    },
-  ],
+ highlights: [
+  { emoji: "👥", bold: "29.7M Followers", text: " and 10B Total Views across platforms" },
+  { emoji: "📺", bold: "Featured", text: " on America’s Got Talent (NBC)" },
+  { emoji: "🎆", bold: "Official NYE Headliner", text: " Singapore 2024 and Hong Kong 2025" },
+  { emoji: "🏆", bold: "Juno Nominee", text: " for 2024 and 2025" },
+  { emoji: "🎵", bold: "450M Streams", text: " across video and audio platforms" },
+  { emoji: "🤝", bold: "Trusted By", text: " Google, YouTube, Qatar Airways, Nissan, and W Hotels" },
+],
+
   brandCollabs: {
     title: "NOTABLE BRAND COLLABS:",
     logos: [
