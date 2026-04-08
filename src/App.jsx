@@ -238,12 +238,23 @@ const DEFAULT_CONFIG = {
       },
     ],
     moreFeatured: [
+      
+      { title: "NBC: America’s Got Talent", url: "https://www.youtube.com/watch?v=YcTLzmOCQnI", description: "" },
+      {
+        title: "New Years Eve 2024 @ Singapore",
+        url: "https://www.youtube.com/watch?v=UstphUMqDoU",
+        description: "Headlined Singapore's official NYE celebration, broadcast to an estimated 5M TV viewers.",
+      },
       {
         title: "New Year's Eve 2025 @ Hong Kong",
         url: "https://www.youtube.com/watch?v=NpDXBwPkr2w",
         description: "Headlined Hong Kong's official NYE celebration, reaching an estimated 39M TV viewers.",
       },
-      { title: "NBC: America’s Got Talent", url: "https://www.youtube.com/watch?v=YcTLzmOCQnI", description: "" },
+       {
+        title: "YouTube Music Nights @ Harbour City, Hong Kong",
+        url: "https://www.youtube.com/watch?v=lWk_yYHbFBM&t=1495s",
+        description: "Contest with a special 30-min set overlooking the marina.",
+      },
 
       {
         title: "Dubai Tourism Music Videos",
@@ -262,11 +273,7 @@ const DEFAULT_CONFIG = {
         description: "Fan scavenger hunt ending in a surprise live performance.",
         thumbnail: "./thumbnails/AIA.png",
       },
-      {
-        title: "YouTube Music Nights @ Harbour City, Hong Kong",
-        url: "https://www.youtube.com/watch?v=lWk_yYHbFBM&t=1495s",
-        description: "Contest with a special 30-min set overlooking the marina.",
-      },
+     
       {
         title: "Qatar Airport Flash Mob",
         url: "https://www.tiktok.com/@emiliopiano/video/7401954904463412513",
@@ -300,23 +307,19 @@ const DEFAULT_CONFIG = {
         url: "https://www.youtube.com/watch?v=ku1zZfNbTNk",
         description: "Partnered with Dubai Tourism to create and film two music videos in Dubai.",
       },
-      {
-        title: "New Years Eve 2024 @ Singapore",
-        url: "https://www.youtube.com/watch?v=UstphUMqDoU",
-        description: "Headlined Singapore's official NYE celebration, broadcast to an estimated 5M TV viewers.",
-      },
+      
 
     ],
   },
   bioText: `Crash Adams is a Toronto-based pop duo made up of childhood friends Rafaele "Crash"Massarelli and Vince "Adams" Sasso. They've built a dedicated fanbase and launched asuccessful music career by leveraging their ability to go insanely viral through fun and authenticcontent.Their music is an infectious blend of pop and pop-rock, defined by catchy hooks andfeel-good, cinematic storytelling. In 2025/26, they’ll expand their viral short-form series while taking fans on the road—sharingconcert footage, press moments, tour life, and the process of creating music and videos.Rafaele and Vince bring fans closer by showing both the highs of performing and thebehind-the-scenes of their journey`,
- highlights: [
-  { emoji: "👥", bold: "29.7M Followers", text: " and 10B Total Views across platforms" },
-  { emoji: "📺", bold: "Featured", text: " on America’s Got Talent (NBC)" },
-  { emoji: "🎆", bold: "Official NYE Headliner", text: " Singapore 2024 and Hong Kong 2025" },
-  { emoji: "🏆", bold: "Juno Nominee", text: " for 2024 and 2025" },
-  { emoji: "🎵", bold: "450M Streams", text: " across video and audio platforms" },
-  { emoji: "🤝", bold: "Trusted By", text: " Google, YouTube, Qatar Airways, Nissan, and W Hotels" },
-],
+  highlights: [
+    { emoji: "👥", bold: "29.7M Followers", text: " and 10B Total Views across platforms" },
+    { emoji: "📺", bold: "Featured", text: " on America’s Got Talent (NBC)" },
+    { emoji: "🎆", bold: "Official NYE Headliner", text: " Singapore 2024 and Hong Kong 2025" },
+    { emoji: "🏆", bold: "Juno Nominee", text: " for 2024 and 2025" },
+    { emoji: "🎵", bold: "450M Streams", text: " across video and audio platforms" },
+    { emoji: "🤝", bold: "Trusted By", text: " Google, YouTube, Qatar Airways, Nissan, and W Hotels" },
+  ],
 
   brandCollabs: {
     title: "NOTABLE BRAND COLLABS:",
@@ -775,17 +778,7 @@ function VideoGallery({ links = [], colors, itemTitleBold = false, itemTitleColo
 
   return (
     <div className="space-y-6">
-      {/* TikTok/Instagram Videos - Vertical Layout with Thumbnails */}
-      {tiktokIgVideos.length > 0 && (
-        <div>
-          <div className="text-sm font-medium mb-3" style={{ color: c.muted }}>
-            TikTok & Instagram
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3">
-            {tiktokIgVideos.map((item, i) => renderVideoItem(item, `tiktok-${i}`, true))}
-          </div>
-        </div>
-      )}
+      
 
       {/* Other Videos */}
       {otherVideos.length > 0 && (
@@ -793,6 +786,8 @@ function VideoGallery({ links = [], colors, itemTitleBold = false, itemTitleColo
           {otherVideos.map((item, i) => renderVideoItem(item, `other-${i}`))}
         </div>
       )}
+
+
 
       {/* YouTube Videos - Horizontal Layout with Embeds */}
       {youtubeVideos.length > 0 && (
@@ -802,6 +797,18 @@ function VideoGallery({ links = [], colors, itemTitleBold = false, itemTitleColo
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {youtubeVideos.map((item, i) => renderVideoItem(item, `youtube-${i}`))}
+          </div>
+        </div>
+      )}
+
+      {/* TikTok/Instagram Videos - Vertical Layout with Thumbnails */}
+      {tiktokIgVideos.length > 0 && (
+        <div>
+          <div className="text-sm font-medium mb-3" style={{ color: c.muted }}>
+            TikTok & Instagram
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3">
+            {tiktokIgVideos.map((item, i) => renderVideoItem(item, `tiktok-${i}`, true))}
           </div>
         </div>
       )}
@@ -1011,19 +1018,19 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
 
 
   useEffect(() => {
-   const loadData = async () => {
-  try {
-    onLoadingChange(true)
-    const sheetsData = await loadAllAnalytics()  // ← this  fetches ALL 4 sheets
-    if (sheetsData && Object.keys(sheetsData).length > 0) {
-      setPlatformData(ensurePlatformData(sheetsData))  // ← this sets ALL data including gender/ages/countries
+    const loadData = async () => {
+      try {
+        onLoadingChange(true)
+        const sheetsData = await loadAllAnalytics()  // ← this  fetches ALL 4 sheets
+        if (sheetsData && Object.keys(sheetsData).length > 0) {
+          setPlatformData(ensurePlatformData(sheetsData))  // ← this sets ALL data including gender/ages/countries
+        }
+      } catch (err) {
+        console.error("SheetDB load failed, using defaults:", err)
+      } finally {
+        onLoadingChange(false)
+      }
     }
-  } catch (err) {
-    console.error("SheetDB load failed, using defaults:", err)
-  } finally {
-    onLoadingChange(false)
-  }
-}
 
     loadData()
   }, [])
@@ -1116,7 +1123,7 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                 <div className="mt-2 flex flex-wrap justify-center sm:justify-start gap-2 text-xs select-none">
                   {[
                     { id: "overview", label: "Overview" },
-                    { id: "brands", label: "Brands/Performances" },
+                    { id: "brands", label: "Live Events/Brands" },
                     { id: "analytics", label: "Analytics" },
                   ].map((b) => (
                     <button
@@ -1259,25 +1266,10 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
         {/* Content routed by view */}
         {view === "brands" ? (
           <>
-            {/* FEATURED VIDEOS */}
-            <Card
-              className="rounded-2xl shadow-md mt-0"
-              id="brands"
-              style={{ background: colors._cardBg, borderColor: colors.border }}
-            >
-              <CardContent>
-                <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
-                  Notable Campaigns
-                </div>
-                <VideoGallery links={tagVideos.featured} colors={colors} itemTitleBold itemTitleColor={colors.text} />
-              </CardContent>
-            </Card>
-
-            {/* LIVE MUSIC ACTIVATIONS */}
             <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
               <CardContent>
                 <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
-                  LIVE MUSIC ACTIVATIONS
+                  LIVE EVENTS
                 </div>
                 <VideoGallery
                   links={tagVideos.moreFeatured}
@@ -1287,6 +1279,21 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                 />
               </CardContent>
             </Card>
+            {/* FEATURED VIDEOS */}
+            <Card
+              className="rounded-2xl shadow-md mt-0"
+              id="brands"
+              style={{ background: colors._cardBg, borderColor: colors.border }}
+            >
+              <CardContent>
+                <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
+                  Brand Campaigns
+                </div>
+                <VideoGallery links={tagVideos.featured} colors={colors} itemTitleBold itemTitleColor={colors.text} />
+              </CardContent>
+            </Card>
+
+            
           </>
         ) : view === "analytics" ? (
           <>
@@ -1411,29 +1418,31 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                   Mission:
                 </h2>
                 <p className="text-base leading-6" style={{ color: colors.text }}>
-                  Crash Adams is a Toronto-born, LA-based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. Their goal is simple: use music, content, and real connection to make people feel good. <br />
-                  <br />
-                  Combining feel-good pop rock with digital storytelling, Crash Adams has built a global audience by creating moments that make people smile and stay engaged. Their “Can You Rap?” series has grown from spontaneous street content into a multi-billion-view platform that highlights emerging artists and gives new talent real exposure. They have created a fan-driven ecosystem that fuels not just their growth, but the growth of their artist peers as well.
-                  <br />
-                  <br />
-                  Through 2026, they plan to release more music and expand their short-form content, including Can You Rap?, while bringing fans behind the scenes of touring, live shows, and the creative process. Crash Adams is focused on building a body of work and a community people can grow with over time.
+                  Crash Adams is a Toronto-born, LA based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. They’re a globally recognized pop duo known for their high-energy live performance, strong audience connection, and viral content series’ that helped them build a massive cross-platform following. With appearances including <b>NBC’s America’s Got Talent</b> , major international live events, and performances tied to global brands, they have proven their ability to deliver high energy live moments. Their live show blends strong vocals, crowd engagement, and a sense of fun that translates across private events, corporate functions, special appearances, and large-scale live events/public activations.
 
                 </p>
                 <br />
-                {/* Partnership Opportunities */}
+                {/* Event Formats */}
                 <div className="mt-6 border-l-4 border-customYellow pl-4 rounded-md p-4">
                   <h2 className="text-xl font-extrabold text-customYellow mb-3 uppercase tracking-wider">
-                    Partnership Opportunities
+                    Event Formats
                   </h2>
                   <ul className="list-disc ml-6 space-y-2 text-base leading-relaxed font-medium">
-                    <li>TikTok/IG Reels integrations</li>
-                    <li>Facebook/Facebook Reels Integration</li>
-                    <li>IG/FB Stories Integration</li>
-                    <li>Snapchat integration</li>
-                    <li>YouTube shorts/sponsored mentions</li>
-                    <li>Tour sponsorships & live activations</li>
-                    <li>Merch collaborations</li>
-                    <li>Whitelisting/paid media amplification</li>
+                    <li>Main Stage Featured Performances</li>
+                    <li>
+                      International Events
+                    </li>
+                    <li>Corporate Events
+                    </li>
+                    <li>Brand Activations
+                    </li>
+                    <li>
+                      Private Parties & Celebrations
+
+                    </li>
+                    <li>Gala & Fundraiser Performances</li>
+                    <li>Acoustic / Stripped-Back Sets</li>
+                    <li>Special Appearances</li>
                   </ul>
                 </div>
               </CardContent>
@@ -1449,6 +1458,21 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                   HIGHLIGHTS:
                 </h2>
                 <HighlightsGrid items={DEFAULT_CONFIG.highlights} colors={colors} />
+              </CardContent>
+            </Card>
+
+            {/* LIVE MUSIC ACTIVATIONS */}
+            <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
+              <CardContent>
+                <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
+                  LIVE MUSIC ACTIVATIONS
+                </div>
+                <VideoGallery
+                  links={tagVideos.moreFeatured}
+                  colors={colors}
+                  itemTitleBold
+                  itemTitleColor={colors.text}
+                />
               </CardContent>
             </Card>
 
