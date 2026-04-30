@@ -195,12 +195,6 @@ const DEFAULT_CONFIG = {
         thumbnail: "./thumbnails/DubaiToursim.png",
       },
       {
-        title: "W Hotels",
-        url: "https://www.instagram.com/reel/DFCxRSkxy4m/?igsh=NTc4MTIwNjQ2YQ==",
-        description: "",
-        thumbnail: "./thumbnails/W-hotels.png",
-      },
-      {
         title: "US Open",
         url: "https://www.instagram.com/reel/CwtYLy8vyi1/?igsh=NTc4MTIwNjQ2YQ==",
         description: "",
@@ -218,27 +212,9 @@ const DEFAULT_CONFIG = {
         description: "",
         thumbnail: "./thumbnails/Chicago.png",
       },
-      {
-        title: "HSBC",
-        url: "https://www.tiktok.com/t/ZP8SqQHou/",
-        description: "",
-        thumbnail: "./thumbnails/HSBC.jpg",
-      },
-      {
-        title: "Vaughan Mills",
-        url: "https://www.instagram.com/reel/DCBXgcixRMK/?igsh=NTc4MTIwNjQ2YQ==",
-        description: "",
-        thumbnail: "./thumbnails/VaughanMills.png",
-      },
-      {
-        title: "Meta",
-        url: "https://www.instagram.com/reel/C1_SSnuAOJH/?igsh=NTc4MTIwNjQ2YQ==",
-        description: "",
-        thumbnail: "./thumbnails/Meta.jpg",
-      },
     ],
     moreFeatured: [
-      
+
       { title: "NBC: America’s Got Talent", url: "https://www.youtube.com/watch?v=YcTLzmOCQnI", description: "" },
       {
         title: "New Years Eve 2024 @ Singapore",
@@ -250,7 +226,7 @@ const DEFAULT_CONFIG = {
         url: "https://www.youtube.com/watch?v=NpDXBwPkr2w",
         description: "Headlined Hong Kong's official NYE celebration, reaching an estimated 39M TV viewers.",
       },
-       {
+      {
         title: "YouTube Music Nights @ Harbour City, Hong Kong",
         url: "https://www.youtube.com/watch?v=lWk_yYHbFBM&t=1495s",
         description: "Contest with a special 30-min set overlooking the marina.",
@@ -273,7 +249,7 @@ const DEFAULT_CONFIG = {
         description: "Fan scavenger hunt ending in a surprise live performance.",
         thumbnail: "./thumbnails/AIA.png",
       },
-     
+
       {
         title: "Qatar Airport Flash Mob",
         url: "https://www.tiktok.com/@emiliopiano/video/7401954904463412513",
@@ -307,7 +283,7 @@ const DEFAULT_CONFIG = {
         url: "https://www.youtube.com/watch?v=ku1zZfNbTNk",
         description: "Partnered with Dubai Tourism to create and film two music videos in Dubai.",
       },
-      
+
 
     ],
   },
@@ -778,7 +754,7 @@ function VideoGallery({ links = [], colors, itemTitleBold = false, itemTitleColo
 
   return (
     <div className="space-y-6">
-      
+
 
       {/* Other Videos */}
       {otherVideos.length > 0 && (
@@ -1123,8 +1099,11 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                 <div className="mt-2 flex flex-wrap justify-center sm:justify-start gap-2 text-xs select-none">
                   {[
                     { id: "overview", label: "Overview" },
-                    { id: "brands", label: "Live Events/Brands" },
-                    { id: "analytics", label: "Analytics" },
+                    // { id: "brands", label: "Live Events/Brands" },
+                    { id: "booking_form", label: "Booking Form" },
+
+                    // { id: "analytics", label: "Analytics" },
+
                   ].map((b) => (
                     <button
                       key={b.id}
@@ -1263,6 +1242,7 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
           </div>
         )}
 
+
         {/* Content routed by view */}
         {view === "brands" ? (
           <>
@@ -1293,7 +1273,7 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
               </CardContent>
             </Card>
 
-            
+
           </>
         ) : view === "analytics" ? (
           <>
@@ -1418,7 +1398,15 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
                   Mission:
                 </h2>
                 <p className="text-base leading-6" style={{ color: colors.text }}>
-                  Crash Adams is a Toronto-born, LA based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. They’re a globally recognized pop duo known for their high-energy live performance, strong audience connection, and viral content series’ that helped them build a massive cross-platform following. With appearances including <b>NBC’s America’s Got Talent</b> , major international live events, and performances tied to global brands, they have proven their ability to deliver high energy live moments. Their live show blends strong vocals, crowd engagement, and a sense of fun that translates across private events, corporate functions, special appearances, and large-scale live events/public activations.
+                  Crash Adams is a Toronto-born, LA based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. They’re a globally recognized pop duo known for their high-energy live performance, strong audience connection, and viral content series’ that helped them build a massive cross-platform following. With appearances including NBC’s America’s Got Talent , major international live events, and performances tied to global brands, they have proven their ability to deliver high energy live moments. Their goal has always been simple: make people feel something good.
+                  <br />
+
+                  <br />
+                  Their first breakout song, <strong>“Give Me A Kiss” </strong> recently crossed <strong>100 million</strong> streams on Spotify and continues to grow, becoming a defining record for their sound and identity. Not long after, their single “New Heart” took things even further, landing on Spotify’s Viral charts in over 30 countries, generating over <strong>2 billion</strong>  views on TikTok, more than 500,000 creates, and 30 million Spotify streams.
+                  <br />
+                  <br />
+                  Their live show blends strong vocals, crowd engagement, and a sense of fun that translates across private events, corporate functions, special appearances, and large-scale live events/public activations.
+
 
                 </p>
                 <br />
@@ -1479,7 +1467,7 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
             {/* BRAND COLLABS */}
             <BrandCollabsSection colors={colors} />
             {/* PRESS */}
-            <PressSection colors={colors} />
+            {/* <PressSection colors={colors} /> */}
           </>
         )}
       </div>
