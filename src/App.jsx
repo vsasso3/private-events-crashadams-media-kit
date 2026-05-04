@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react"
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, PieChart, Pie, Cell, Tooltip } from "recharts"
 import { FaYoutube, FaTiktok, FaInstagram, FaSnapchatGhost, FaFacebook } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
+import BookingForm from "./components/BookingForm"
 
 // =====================
 // Dashboard Shell
@@ -18,7 +19,7 @@ function DashboardShell({ children, isLoading = false }) {
             <div className="font-semibold">Crash Adams – Media Kit</div>
             <div className="text-xs text-gray-500 flex items-center gap-2">
               {isLoading && <span className="animate-spin">⟳</span>}
-              <span>{isLoading ? "Loading data..." : "Editable React dashboard"}</span>
+              <span>{isLoading ? "Loading data..." : "Crash Adams dashboard"}</span>
             </div>
           </div>
         </header>
@@ -1275,201 +1276,108 @@ function EditableAnalyticsDashboard({ onLoadingChange }) {
 
 
           </>
-        ) : view === "analytics" ? (
-          <>
-            <div className="grid gap-4 md:grid-cols-3 ">
-              <StatCard colors={colors} label={labels.followers} value={active.stats.followers} />
-              <StatCard
-                colors={colors}
-                label={labels.engagement}
-                value={active.stats.engagementRate}
-                suffix={active.stats.engagementRate == null ? "" : "%"}
-              />
-              <StatCard colors={colors} label={labels.totalImpressions} value={active.stats.totalImpressions} />
-            </div>
+        ) : view === "booking_form" ?
 
-            <div className="grid gap-4 md:grid-cols-3">
-              <StatCard colors={colors} label={labels.shares} value={active.stats.shares} />
-              <StatCard colors={colors} label={labels.views} value={active.stats.views} />
-              <StatCard colors={colors} label={labels.likes} value={active.stats.likes} />
-            </div>
+          (
+            <>
+              <Card className="shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
+                <CardContent>
+                  <BookingForm colors={colors} />
+                </CardContent>
+              </Card>
 
-            <div className="grid gap-4 md:grid-cols-3">
-              <StatCard colors={colors} label={labels.comments} value={active.stats.comments} />
-              {platform === "instagram" && (
-                <StatCard colors={colors} label={labels.averageStoryViews} value={active.stats.averageStoryViews} />
-              )}
-
-              {/* Gender Pie */}
+            </>
+          ) : (
+            <>
+              {/* WHO WE ARE */}
               <Card
-                className="rounded-2xl shadow-md"
+                id="overview"
+                className="shadow-md"
                 style={{ background: colors._cardBg, borderColor: colors.border }}
               >
                 <CardContent>
-                  <div className="text-xs uppercase tracking-widest mb-2" style={{ color: colors.muted }}>
-                    {labels.gender}
-                  </div>
-                  <div className="h-52">
-                    <ResponsiveContainer>
-                      <PieChart>
-                        <Tooltip contentStyle={tooltipStyle} />
-                        <Pie dataKey="value" data={pieData} innerRadius={60} outerRadius={80} paddingAngle={2}>
-                          <Cell fill={colors.primary} />
-                          <Cell fill={colors.secondary} />
-                        </Pie>
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <div className="flex items-center gap-6 text-sm mt-2">
-                    <div className="flex items-center gap-2">
-                      <span className="h-3 w-3 rounded-full" style={{ background: colors.primary }} /> Male{" "}
-                      <span className="ml-1" style={{ color: colors.muted }}>
-                        {pieData[0].value}%
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-3 w-3 rounded-full" style={{ background: colors.secondary }} /> Female{" "}
-                      <span className="ml-1" style={{ color: colors.muted }}>
-                        {pieData[1].value}%
-                      </span>
-                    </div>
+                  <h2
+                    className="text-xl font-bold tracking-wide mb-3 border-b pb-2 uppercase"
+                    style={{ color: colors.text, borderColor: colors.border }}
+                  >
+                    Mission:
+                  </h2>
+                  <p className="text-base leading-6" style={{ color: colors.text }}>
+                    Crash Adams is a Toronto-born, LA based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. They’re a globally recognized pop duo known for their high-energy live performance, strong audience connection, and viral content series’ that helped them build a massive cross-platform following. With appearances including NBC’s America’s Got Talent , major international live events, and performances tied to global brands, they have proven their ability to deliver high energy live moments. Their goal has always been simple: make people feel something good.
+                    <br />
+
+                    <br />
+                    Their first breakout song, <strong>“Give Me A Kiss” </strong> recently crossed <strong>100 million</strong> streams on Spotify and continues to grow, becoming a defining record for their sound and identity. Not long after, their single “New Heart” took things even further, landing on Spotify’s Viral charts in over 30 countries, generating over <strong>2 billion</strong>  views on TikTok, more than 500,000 creates, and 30 million Spotify streams.
+                    <br />
+                    <br />
+                    Their live show blends strong vocals, crowd engagement, and a sense of fun that translates across private events, corporate functions, special appearances, and large-scale live events/public activations.
+
+
+                  </p>
+                  <br />
+                  {/* Event Formats */}
+                  <div className="mt-6 border-l-4 border-customYellow pl-4 rounded-md p-4">
+                    <h2 className="text-xl font-extrabold text-customYellow mb-3 uppercase tracking-wider">
+                      Event Formats
+                    </h2>
+                    <ul className="list-disc ml-6 space-y-2 text-base leading-relaxed font-medium">
+                      <li>Main Stage Featured Performances</li>
+                      <li>
+                        International Events
+                      </li>
+                      <li>Corporate Events
+                      </li>
+                      <li>Brand Activations
+                      </li>
+                      <li>
+                        Private Parties & Celebrations
+
+                      </li>
+                      <li>Gala & Fundraiser Performances</li>
+                      <li>Acoustic / Stripped-Back Sets</li>
+                      <li>Special Appearances</li>
+                    </ul>
                   </div>
                 </CardContent>
               </Card>
-            </div>
 
-            {/* Ages */}
-            <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
-              <CardContent>
-                <div className="text-xs uppercase tracking-widest mb-4" style={{ color: colors.muted }}>
-                  {labels.ageGender}
-                </div>
-                <div className="h-64">
-                  <ResponsiveContainer>
-                    <BarChart data={barData} layout="vertical" margin={{ left: 50 }}>
-                      <XAxis type="number" hide domain={[0, 100]} />
-                      <YAxis type="category" dataKey="range" tick={{ fill: colors.muted }} width={60} />
-                      <Tooltip contentStyle={tooltipStyle} formatter={(value) => `${value}%`} />
-                      <Bar dataKey="value" radius={[0, 12, 12, 0]} fill={colors.primary} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Countries */}
-            <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
-              <CardContent>
-                <div className="text-xs uppercase tracking-widest mb-4" style={{ color: colors.muted }}>
-                  {labels.topCountries}
-                </div>
-                <div className="grid gap-3">
-                  {(active.countries || []).map((c, i) => (
-                    <div key={`${c.name}-${i}`} className="flex items-center gap-3">
-                      <div className="w-36 text-sm">{c.name}</div>
-                      <div className="flex-1 h-3 rounded-full overflow-hidden" style={{ background: colors.border }}>
-                        <div
-                          className="h-full"
-                          style={{ width: `${clamp(safeNum(c.value, 0), 0, 100)}%`, background: colors.primary }}
-                        />
-                      </div>
-                      <div className="w-16 text-right text-sm" style={{ color: colors.muted }}>
-                        {clamp(safeNum(c.value, 0), 0, 100)}%
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </>
-        ) : (
-          <>
-            {/* WHO WE ARE */}
-            <Card
-              id="overview"
-              className="shadow-md"
-              style={{ background: colors._cardBg, borderColor: colors.border }}
-            >
-              <CardContent>
-                <h2
-                  className="text-xl font-bold tracking-wide mb-3 border-b pb-2 uppercase"
-                  style={{ color: colors.text, borderColor: colors.border }}
-                >
-                  Mission:
-                </h2>
-                <p className="text-base leading-6" style={{ color: colors.text }}>
-                  Crash Adams is a Toronto-born, LA based duo made up of childhood friends Rafaele “Crash” Massarelli and Vince “Adams” Sasso. They’re a globally recognized pop duo known for their high-energy live performance, strong audience connection, and viral content series’ that helped them build a massive cross-platform following. With appearances including NBC’s America’s Got Talent , major international live events, and performances tied to global brands, they have proven their ability to deliver high energy live moments. Their goal has always been simple: make people feel something good.
-                  <br />
-
-                  <br />
-                  Their first breakout song, <strong>“Give Me A Kiss” </strong> recently crossed <strong>100 million</strong> streams on Spotify and continues to grow, becoming a defining record for their sound and identity. Not long after, their single “New Heart” took things even further, landing on Spotify’s Viral charts in over 30 countries, generating over <strong>2 billion</strong>  views on TikTok, more than 500,000 creates, and 30 million Spotify streams.
-                  <br />
-                  <br />
-                  Their live show blends strong vocals, crowd engagement, and a sense of fun that translates across private events, corporate functions, special appearances, and large-scale live events/public activations.
-
-
-                </p>
-                <br />
-                {/* Event Formats */}
-                <div className="mt-6 border-l-4 border-customYellow pl-4 rounded-md p-4">
-                  <h2 className="text-xl font-extrabold text-customYellow mb-3 uppercase tracking-wider">
-                    Event Formats
+              {/* HIGHLIGHTS */}
+              <Card className="shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
+                <CardContent>
+                  <h2
+                    className="text-xl font-bold tracking-wide mb-4 border-b pb-2 uppercase"
+                    style={{ color: colors.text, borderColor: colors.border }}
+                  >
+                    HIGHLIGHTS:
                   </h2>
-                  <ul className="list-disc ml-6 space-y-2 text-base leading-relaxed font-medium">
-                    <li>Main Stage Featured Performances</li>
-                    <li>
-                      International Events
-                    </li>
-                    <li>Corporate Events
-                    </li>
-                    <li>Brand Activations
-                    </li>
-                    <li>
-                      Private Parties & Celebrations
+                  <HighlightsGrid items={DEFAULT_CONFIG.highlights} colors={colors} />
+                </CardContent>
+              </Card>
 
-                    </li>
-                    <li>Gala & Fundraiser Performances</li>
-                    <li>Acoustic / Stripped-Back Sets</li>
-                    <li>Special Appearances</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+              {/* LIVE MUSIC ACTIVATIONS */}
+              <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
+                <CardContent>
+                  <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
+                    LIVE MUSIC ACTIVATIONS
+                  </div>
+                  <VideoGallery
+                    links={tagVideos.moreFeatured}
+                    colors={colors}
+                    itemTitleBold
+                    itemTitleColor={colors.text}
+                  />
+                </CardContent>
+              </Card>
 
-            {/* HIGHLIGHTS */}
-            <Card className="shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
-              <CardContent>
-                <h2
-                  className="text-xl font-bold tracking-wide mb-4 border-b pb-2 uppercase"
-                  style={{ color: colors.text, borderColor: colors.border }}
-                >
-                  HIGHLIGHTS:
-                </h2>
-                <HighlightsGrid items={DEFAULT_CONFIG.highlights} colors={colors} />
-              </CardContent>
-            </Card>
+              {/* BRAND COLLABS */}
+              <BrandCollabsSection colors={colors} />
+              {/* PRESS */}
+              {/* <PressSection colors={colors} /> */}
+            </>
+          )
 
-            {/* LIVE MUSIC ACTIVATIONS */}
-            <Card className="rounded-2xl shadow-md" style={{ background: colors._cardBg, borderColor: colors.border }}>
-              <CardContent>
-                <div className="text-xl uppercase tracking-widest mb-3 font-bold" style={{ color: colors.text }}>
-                  LIVE MUSIC ACTIVATIONS
-                </div>
-                <VideoGallery
-                  links={tagVideos.moreFeatured}
-                  colors={colors}
-                  itemTitleBold
-                  itemTitleColor={colors.text}
-                />
-              </CardContent>
-            </Card>
 
-            {/* BRAND COLLABS */}
-            <BrandCollabsSection colors={colors} />
-            {/* PRESS */}
-            {/* <PressSection colors={colors} /> */}
-          </>
-        )}
+        }
       </div>
     </div>
   )
