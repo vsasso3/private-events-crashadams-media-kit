@@ -7,7 +7,6 @@ const TEMPLATE_ID = "template_1fnw2zf"
 const PUBLIC_KEY  = "fZDcBL1R4yxjMRx8Y"
 
 const BUDGET_OPTIONS = [
-  "$5k – $10k",
   "$10k – $20k",
   "$20k – $30k",
   "$30k – $50k",
